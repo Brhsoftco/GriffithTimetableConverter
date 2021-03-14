@@ -1,7 +1,4 @@
-﻿using GriffithTimetableConverter.Timetable.JsonModel;
-using Ical.Net;
-using Ical.Net.CalendarComponents;
-using Ical.Net.DataTypes;
+﻿using GriffithTimetableConverter.Timetable.JsonModel.Griffith;
 using Ical.Net.Serialization;
 using System;
 using System.IO;
@@ -41,52 +38,17 @@ namespace GriffithTimetableConverter
                                 if (timetableModel.Events?.Length > 0)
                                 {
                                     //calender provider
-                                    var calendar = new Calendar();
+                                    var calendar = timetableModel.ToCalendar();
 
                                     //go through each event
-                                    foreach (var e in timetableModel.Events)
+                                    foreach (var e in calendar.Events)
                                     {
                                         //print event name
                                         Console.WriteLine("\nFOUND:");
-                                        Console.WriteLine($"{e.CourseTitle} ({e.CourseCode})");
+                                        Console.WriteLine($"{e.Summary}");
                                         Console.WriteLine($"Starts: {e.Start}");
                                         Console.WriteLine($"Ends: {e.End}");
-                                        Console.WriteLine($"Location: {e.LocationNumber}");
-                                        Console.WriteLine($"Type: {e.TypeName}");
-
-                                        //geocoding validation
-                                        var geocoding = e.LocationGeocode != null
-                                            ? new GeographicLocation(e.LocationGeocode.Lat, e.LocationGeocode.Lon)
-                                            : new GeographicLocation(0, 0);
-
-                                        //location number validation
-                                        var locationNumber = !string.IsNullOrWhiteSpace(e.LocationNumber)
-                                            ? e.LocationNumber
-                                            : @"TBA";
-
-                                        //description
-                                        var description = $"{e.TypeName} ({e.TypeCode})";
-
-                                        //is a URL specified?
-                                        if (e.Url != null)
-
-                                            //append to the description
-                                            description += $"\n\nURL: {e.Url}";
-
-                                        //construct event
-                                        var calenderEvent = new CalendarEvent
-                                        {
-                                            Start = new CalDateTime(e.Start.DateTime),
-                                            End = new CalDateTime(e.End.DateTime),
-                                            Location = locationNumber,
-                                            Transparency = TransparencyType.Opaque,
-                                            Summary = $"{e.CourseTitle} ({e.CourseCode})",
-                                            Description = description,
-                                            GeographicLocation = geocoding
-                                        };
-
-                                        //add the final event
-                                        calendar.Events.Add(calenderEvent);
+                                        Console.WriteLine($"Location: {e.Location}");
                                     }
 
                                     //serialisation provider

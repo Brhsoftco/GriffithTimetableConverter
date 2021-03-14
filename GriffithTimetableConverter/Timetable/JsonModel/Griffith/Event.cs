@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace GriffithTimetableConverter.Timetable.JsonModel
+namespace GriffithTimetableConverter.Timetable.JsonModel.Griffith
 {
     public class Event
     {

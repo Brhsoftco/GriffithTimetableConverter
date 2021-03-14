@@ -62,17 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Timetable\JsonModel\Converter.cs" />
-    <Compile Include="Timetable\JsonModel\Event.cs" />
-    <Compile Include="Timetable\JsonModel\ExamClass.cs" />
-    <Compile Include="Timetable\JsonModel\ExamElement.cs" />
-    <Compile Include="Timetable\JsonModel\ExamElementConverter.cs" />
-    <Compile Include="Timetable\JsonModel\KeyDate.cs" />
-    <Compile Include="Timetable\JsonModel\LocationGeocode.cs" />
-    <Compile Include="Timetable\JsonModel\ScheduleModel.cs" />
-    <Compile Include="Timetable\JsonModel\Serialize.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\Event.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\ExamClass.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\ExamElement.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\ExamElementConverter.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\KeyDate.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\LocationGeocode.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\ScheduleModel.cs" />
+    <Compile Include="Timetable\JsonModel\Griffith\Serialize.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

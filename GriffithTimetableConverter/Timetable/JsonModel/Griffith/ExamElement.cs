@@ -1,4 +1,4 @@
-﻿namespace GriffithTimetableConverter.Timetable.JsonModel
+﻿namespace GriffithTimetableConverter.Timetable.JsonModel.Griffith
 {
     public struct ExamElement
     {

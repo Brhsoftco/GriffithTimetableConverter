@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GriffithTimetableConverter.Timetable.JsonModel
+namespace GriffithTimetableConverter.Timetable.JsonModel.Griffith
 {
     public partial class ScheduleModel
     {
