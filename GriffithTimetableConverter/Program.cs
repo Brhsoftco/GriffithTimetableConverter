@@ -57,9 +57,14 @@ namespace GriffithTimetableConverter
                                     //serialise to final formatted string
                                     var serializedCalendar = serializer.SerializeToString(calendar);
 
+                                    //get directory
+                                    var outputDir = !string.IsNullOrWhiteSpace(Path.GetDirectoryName(args[0]))
+                                        ? Path.GetDirectoryName(args[0])
+                                        : ".";
+
                                     //calender file
                                     var outputFile =
-                                        $@"{Path.GetDirectoryName(args[0])}\{Path.GetFileNameWithoutExtension(args[0])}.ics";
+                                        $@"{outputDir}\{Path.GetFileNameWithoutExtension(args[0])}.ics";
 
                                     //write to calender file
                                     File.WriteAllText(outputFile, serializedCalendar, new UTF8Encoding(false));
